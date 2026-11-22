@@ -16,3 +16,11 @@ dist/
 .vscode/
 .idea/
 .DS_Store
+
+# Local databases
+*.db
+*.sqlite
+*.sqlite3
+
+# Local env files
+.env.local
