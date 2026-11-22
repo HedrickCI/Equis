@@ -22,15 +22,16 @@ app = FastAPI(
     version="0.1.0",
 )
 
-# The Vite dev server runs on 5173.
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=[
+        "http://localhost:5173",
+        "https://equis-frontend.vercel.app",
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 
 def _get_group(db: Session, group_id: int) -> models.Group:
     group = db.get(models.Group, group_id)
