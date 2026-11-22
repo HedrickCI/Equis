@@ -66,11 +66,9 @@ def allocate(tasks: list[Task], members: list[Member]) -> list[Member]:
     for member in available:
         member.assigned = []
 
-    # Heaviest first: placing big tasks early leaves small ones to even out the
-    # remainder. Scheduling the other way round strands a large task at the end
-    # with nowhere balanced to put it.
+    
     for task in sorted(tasks, key=lambda t: t.weight, reverse=True):
-        least_loaded = min(available, key=lambda m: m.relative_load)
+        least_loaded = min(available, key=lambda m: (m.relative_load, -m.capacity))
         least_loaded.assigned.append(task)
 
     return members
