@@ -100,7 +100,10 @@ Activate the virtual environment:
 
 ```bash
 # Windows (PowerShell)
-.venv\Scripts\activate
+.\.venv\Scripts\Activate.ps1
+
+# Windows (Command Prompt)
+.venv\Scripts\activate.bat
 
 # macOS / Linux
 source .venv/bin/activate
